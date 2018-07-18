@@ -25,6 +25,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * MQ集群控制器：
+ * 加载完mq配置文件之后，就初始化集群代码
+ */
 @Controller
 @RequestMapping("/cluster")
 public class ClusterController {
@@ -38,6 +42,13 @@ public class ClusterController {
         return clusterService.list();
     }
 
+    /**
+     * 获取代理的配置
+     * broker作用：它接收从生产者发送的消息，存储它们并准备处理来自消费者的拉取请求。
+     *             它还存储与消息相关的元数据，包括消费者组，消耗进度偏移和主题/队列信息。
+     * @param brokerAddr
+     * @return
+     */
     @RequestMapping(value = "/brokerConfig.query", method = RequestMethod.GET)
     @ResponseBody
     public Object brokerConfig(@RequestParam String brokerAddr) {

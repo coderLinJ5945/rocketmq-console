@@ -34,7 +34,16 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import org.springframework.web.bind.annotation.ResponseBody;
+/**
+ * message :消息是要传递的信息。
+ *          消息必须有一个主题，可以将其解释为您要发送给的邮件地址。
+ *          消息还可以具有可选标记和额外的键 - 值对。
+ *          例如，您可以为消息设置业务密钥，并在代理服务器上查找消息以诊断开发期间的问题。
+ */
 
+/**
+ * 消息控制器
+ */
 @Controller
 @RequestMapping("/message")
 public class MessageController {

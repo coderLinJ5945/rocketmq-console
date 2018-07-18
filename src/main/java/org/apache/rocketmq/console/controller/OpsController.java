@@ -24,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * MQ相关的操作控制器
+ */
 @Controller
 @RequestMapping("/ops")
 public class OpsController {

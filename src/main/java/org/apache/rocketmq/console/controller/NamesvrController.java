@@ -23,7 +23,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+/**
+ * nameServer : 充当路由信息提供者。
+ *              生产者/消费者客户查找主题以查找相应的经纪人列表。
+ */
 
+/**
+ * mq服务器控制器
+ */
 @Controller
 @RequestMapping("/rocketmq")
 public class NamesvrController {

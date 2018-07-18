@@ -51,6 +51,7 @@ public class MQAdminInstance {
     public static void initMQAdminInstance(long timeoutMillis) throws MQClientException {
         Integer nowCount = INIT_COUNTER.get();
         if (nowCount == null) {
+            //DefaultMQAdminExt 是消费者的扩展类？ todo 需要了解一下 DefaultMQAdminExt
             DefaultMQAdminExt defaultMQAdminExt;
             if (timeoutMillis > 0) {
                 defaultMQAdminExt = new DefaultMQAdminExt(timeoutMillis);

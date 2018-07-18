@@ -34,7 +34,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+/**
+ * consumer:消费者从经纪人那里获取消息并将其提供给应用程序。
+ *          从用户应用的角度来看，提供了两种类型的消费者:PullConsumer 和 PushConsumer
+ *
+ * PullConsumer：
+ *          拉动消费者积极地从经纪人那里获取消息。
+ *          一旦提取了批量消息，用户应用程序就会启动消费过程。
+ * PushConsumer：
+ *          另一方面，推送消费者封装消息提取，消费进度并维护其他内部工作，
+ *          为最终用户留下回调接口以实现将在消息到达时执行。
+ */
 
+/**
+ * 消费者控制器
+ */
 @Controller
 @RequestMapping("/consumer")
 public class ConsumerController {

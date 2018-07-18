@@ -20,9 +20,7 @@ import org.apache.rocketmq.common.subscription.SubscriptionGroupConfig;
 
 import java.util.List;
 
-/**
- * 消费者配置信息
- */
+
 public class ConsumerConfigInfo {
     //
     private List<String> clusterNameList;

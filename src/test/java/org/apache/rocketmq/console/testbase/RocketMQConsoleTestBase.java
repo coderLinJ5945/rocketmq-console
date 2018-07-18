@@ -127,7 +127,6 @@ public abstract class RocketMQConsoleTestBase {
             consumer.subscribe(TEST_CONSOLE_TOPIC, "*");
 
             consumer.registerMessageListener(new MessageListenerConcurrently() {
-                @Override
                 public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs,
                     ConsumeConcurrentlyContext context) {
                     consoleTestBaseLog.info("op=consumeMessage message={}", JsonUtil.obj2String(msgs));

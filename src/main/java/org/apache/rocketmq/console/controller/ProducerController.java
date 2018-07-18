@@ -26,6 +26,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * MQ生产者控制器
+ */
 @Controller
 @RequestMapping("/producer")
 public class ProducerController {

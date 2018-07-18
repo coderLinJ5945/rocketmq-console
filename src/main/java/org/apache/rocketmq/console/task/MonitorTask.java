@@ -27,6 +27,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * 监控任务类
+ * 主要用于监控 GroupConsume 消费者组的消费信息
+ */
 @Component
 public class MonitorTask {
     private Logger logger = LoggerFactory.getLogger(MonitorTask.class);

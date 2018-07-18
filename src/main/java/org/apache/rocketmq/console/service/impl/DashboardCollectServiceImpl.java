@@ -50,6 +50,9 @@ public class DashboardCollectServiceImpl implements DashboardCollectService {
 
     private final static Logger log = LoggerFactory.getLogger(DashboardCollectServiceImpl.class);
 
+    /**
+     * 从缓存中获取 brokerMap todo 了解CacheBuilder 缓存
+     */
     private LoadingCache<String, List<String>> brokerMap = CacheBuilder.newBuilder()
         .maximumSize(1000)
         .concurrencyLevel(10)

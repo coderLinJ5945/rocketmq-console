@@ -29,6 +29,11 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+/**
+ * 全局的返回ResponseBody
+ * 实现SpringMVC的 ResponseBodyAdvice
+ * todo ： learning
+ */
 @ControllerAdvice(basePackages = "org.apache.rocketmq.console")
 public class GlobalRestfulResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 

@@ -33,14 +33,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("unchecked")
+/**
+ * 基于jackjson 的json工具类
+ */
 public class JsonUtil {
 
     private static Logger logger = LoggerFactory.getLogger(JsonUtil.class);
+    //jackson的数据绑定的实例对象，类对象，static 修饰方便重用
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     private JsonUtil() {
     }
 
+    /**
+     * static 静态块给实例对象赋初始值
+     */
     static {
         objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         objectMapper.configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true);
@@ -60,12 +67,19 @@ public class JsonUtil {
         }
     }
 
+    /**
+     * 其他类型转换成String类型方法
+     * @param src
+     * @param <T> 其他类型数据，泛型参数使用
+     * @return
+     */
     public static <T> String obj2String(T src) {
         if (src == null) {
             return null;
         }
 
         try {
+            //调用jackson 的 writeValueAsString 方法执行其他类型转换成String操作
             return src instanceof String ? (String)src : objectMapper.writeValueAsString(src);
         }
         catch (Exception e) {
@@ -88,6 +102,13 @@ public class JsonUtil {
         }
     }
 
+    /**
+     * String 类型转换成 其他的实体类型
+     * @param str   需要转换的String
+     * @param clazz
+     * @param <T>   Class<T>泛型类型参数
+     * @return
+     */
     public static <T> T string2Obj(String str, Class<T> clazz) {
         if (Strings.isNullOrEmpty(str) || clazz == null) {
             return null;

@@ -23,7 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableAutoConfiguration
 @SpringBootApplication
 public class App {
-
+    //Spring boot 入口
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }

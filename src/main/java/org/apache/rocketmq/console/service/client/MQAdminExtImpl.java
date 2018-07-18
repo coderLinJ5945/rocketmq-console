@@ -67,6 +67,10 @@ import org.springframework.stereotype.Service;
 
 import static org.apache.rocketmq.remoting.protocol.RemotingSerializable.decode;
 
+/**
+ * MQ模型管理接口实现类，直接实现 MQAdminExt，而 MQAdminExt 又继承 MQAdmin MQ管理的基本接口。
+ * 可以理解成，这就是主要的MQ实现类
+ */
 @Service
 public class MQAdminExtImpl implements MQAdminExt {
     private Logger logger = LoggerFactory.getLogger(MQAdminExtImpl.class);

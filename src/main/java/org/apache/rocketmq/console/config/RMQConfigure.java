@@ -26,14 +26,25 @@ import org.springframework.context.annotation.Configuration;
 
 import static org.apache.rocketmq.client.ClientConfig.SEND_MESSAGE_WITH_VIP_CHANNEL_PROPERTY;
 
+/**
+ * mq的配置实体类
+ */
 @Configuration
 @ConfigurationProperties(prefix = "rocketmq.config")
 public class RMQConfigure {
 
     private Logger logger = LoggerFactory.getLogger(RMQConfigure.class);
-    //use rocketmq.namesrv.addr first,if it is empty,than use system proerty or system env
+    /**
+     * volatile:同步机制，当运行内存（从内存）变量改变时，会立即通知到其他线程，性能优于synchronized 锁，但是使用的环境条件有限
+     * 出于性能考虑使用volatile，而不使用synchronized 锁
+     * volatile使用环境：
+     * 1、volatile修饰的变量不依赖本身的结果，或者 只有单一线程改变其变量
+     * 2、变量不依赖其他状态变量共同参与约束（状态变量可以简单理解成为开关的状态）
+     * namesrvAddr 服务器地址
+     */
+    //rocketmq.namesrv.addr，如果它是空的，则使用system proerty或system env
     private volatile String namesrvAddr = System.getProperty(MixAll.NAMESRV_ADDR_PROPERTY, System.getenv(MixAll.NAMESRV_ADDR_ENV));
-
+    //是否开启VIP通道
     private volatile String isVIPChannel = System.getProperty(SEND_MESSAGE_WITH_VIP_CHANNEL_PROPERTY, "true");
 
 
@@ -45,6 +56,10 @@ public class RMQConfigure {
         return namesrvAddr;
     }
 
+    /**
+     * 程序启动会set nameservAddr 初始化
+     * @param namesrvAddr
+     */
     public void setNamesrvAddr(String namesrvAddr) {
         if (StringUtils.isNotBlank(namesrvAddr)) {
             this.namesrvAddr = namesrvAddr;
@@ -72,6 +87,7 @@ public class RMQConfigure {
     public void setIsVIPChannel(String isVIPChannel) {
         if (StringUtils.isNotBlank(isVIPChannel)) {
             this.isVIPChannel = isVIPChannel;
+            //vip 通道只有一个，所以用static final 修饰
             System.setProperty(SEND_MESSAGE_WITH_VIP_CHANNEL_PROPERTY, isVIPChannel);
             logger.info("setIsVIPChannel isVIPChannel={}", isVIPChannel);
         }

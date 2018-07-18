@@ -36,6 +36,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * topic: 是producer 生产者传递消息和consumer 消费者提取消息的类别。
+ *        主题与生产者和消费者的关系非常松散。
+ *        具体来说，一个topic 主题可能有零个，一个或多个producer 向它发送消息;
+ *        相反，producer 可以发送不同主题的消息。
+ *        从consumer 消费者的角度来看，topic 主题可以由零个，一个或多个consumers 消费者群体订阅。
+ *        类似地，消费者组可以订阅一个或多个主题，只要该组的实例保持其订阅一致即可。
+ */
+
+/**
+ * 消息主题控制器
+ */
 @Controller
 @RequestMapping("/topic")
 public class TopicController {

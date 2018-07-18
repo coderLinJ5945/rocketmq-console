@@ -22,6 +22,7 @@ import java.util.HashSet;
 import org.apache.rocketmq.common.MQVersion;
 import org.apache.rocketmq.common.protocol.body.Connection;
 
+
 public class ConnectionInfo extends Connection {
     private String versionDesc;
 

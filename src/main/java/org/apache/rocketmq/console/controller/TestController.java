@@ -56,7 +56,6 @@ public class TestController {
         consumer.subscribe(testTopic, "*");
         consumer.registerMessageListener(new MessageListenerConcurrently() {
 
-            @Override
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs,
                 ConsumeConcurrentlyContext context) {
                 logger.info("receiveMessage msgSize={}", msgs.size());
@@ -71,7 +70,7 @@ public class TestController {
 
         new Thread(new Runnable() {
 
-            @Override public void run() {
+            public void run() {
 
                 int i = 0;
                 while (true) {

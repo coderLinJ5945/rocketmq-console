@@ -27,6 +27,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.console.model.MessageView;
 import org.apache.rocketmq.console.service.MessageService;
 import org.apache.rocketmq.console.testbase.RocketMQConsoleTestBase;
+import org.apache.rocketmq.console.util.JsonUtil;
 import org.apache.rocketmq.tools.admin.MQAdminExt;
 import org.apache.rocketmq.tools.admin.api.MessageTrack;
 import org.junit.After;
@@ -129,6 +130,11 @@ public class MessageServiceImplTest extends RocketMQConsoleTestBase {
 //                return  messageService.consumeMessageDirectly(TEST_CONSOLE_TOPIC,messageId,TEST_CONSUMER_GROUP,null);
 //            }
 //        }.execute(20,1000); // todo test
+
+
+
+        JsonUtil.string2Obj("asdas", Object.class);
+
     }
 
 

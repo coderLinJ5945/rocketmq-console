@@ -54,6 +54,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+/**
+ * 定时任务类，定时收集获取相应的数据，例如：Topic、Broker等
+ */
 @Component
 public class DashboardCollectTask {
     private Date currentDate = new Date();
@@ -68,7 +71,7 @@ public class DashboardCollectTask {
     private final static Logger log = LoggerFactory.getLogger(DashboardCollectTask.class);
 
     @Scheduled(cron = "30 0/1 * * * ?")
-    @MultiMQAdminCmdMethod(timeoutMillis = 5000)
+    @MultiMQAdminCmdMethod(timeoutMillis = 5000) //设置超时时间，单位：毫秒
     public void collectTopic() {
         if (!rmqConfigure.isEnableDashBoardCollect()) {
             return;
