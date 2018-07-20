@@ -189,12 +189,18 @@ public class TopicServiceImpl extends AbstractCommonService implements TopicServ
         return true;
     }
 
+    /**
+     * 开启topic
+     * @param sendTopicMessageRequest
+     * @return
+     */
     @Override
     public SendResult sendTopicMessageRequest(SendTopicMessageRequest sendTopicMessageRequest) {
         DefaultMQProducer producer = new DefaultMQProducer(MixAll.SELF_TEST_PRODUCER_GROUP);
         producer.setInstanceName(String.valueOf(System.currentTimeMillis()));
         producer.setNamesrvAddr(rMQConfigure.getNamesrvAddr());
         try {
+            //开启生产者 todo
             producer.start();
             Message msg = new Message(sendTopicMessageRequest.getTopic(),
                 sendTopicMessageRequest.getTag(),

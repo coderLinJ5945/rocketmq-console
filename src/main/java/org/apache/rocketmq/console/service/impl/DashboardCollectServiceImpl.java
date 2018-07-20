@@ -42,6 +42,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+/**
+ * 程序代码初始化的时候 获取缓存 brokerMap 和 topicMap 信息
+ */
 @Service
 public class DashboardCollectServiceImpl implements DashboardCollectService {
 
@@ -51,7 +54,8 @@ public class DashboardCollectServiceImpl implements DashboardCollectService {
     private final static Logger log = LoggerFactory.getLogger(DashboardCollectServiceImpl.class);
 
     /**
-     * 从缓存中获取 brokerMap todo 了解CacheBuilder 缓存
+     * 从guava 缓存中获取 brokerMap todo 了解CacheBuilder 缓存
+     * todo 需要了解一下，那个地方往 guava缓存中写入过 brokerMap 数据
      */
     private LoadingCache<String, List<String>> brokerMap = CacheBuilder.newBuilder()
         .maximumSize(1000)
@@ -104,6 +108,13 @@ public class DashboardCollectServiceImpl implements DashboardCollectService {
         return topicMap;
     }
 
+    /**
+     * 将从MQ中读取的 node 节点 和 topic 数据缓存到本地的tmp临时文件中，
+     * 当再次初始化的时候读取该文件
+     * todo ： 需要找到啥时候生成的.json文件
+     * @param file todo： 猜测应该是生成的零时文件 \tmp\rocketmq-console\data\dashboard2018-07-18.json
+     * @return
+     */
     @Override
     public Map<String, List<String>> jsonDataFile2map(File file) {
         List<String> strings;

@@ -85,12 +85,20 @@ public class MessageServiceImpl implements MessageService {
         }
     }
 
+    /**
+     * 下午 todo  linj
+     * @param topic
+     * @param begin
+     * @param end
+     * @return
+     */
     @Override
     public List<MessageView> queryMessageByTopic(String topic, final long begin, final long end) {
         DefaultMQPullConsumer consumer = new DefaultMQPullConsumer(MixAll.TOOLS_CONSUMER_GROUP, null);
         List<MessageView> messageViewList = Lists.newArrayList();
         try {
             String subExpression = "*";
+            //消费者开启 todo
             consumer.start();
             Set<MessageQueue> mqs = consumer.fetchSubscribeMessageQueues(topic);
             for (MessageQueue mq : mqs) {

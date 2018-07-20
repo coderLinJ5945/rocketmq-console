@@ -57,6 +57,10 @@ public class ConsumerController {
     @Resource
     private ConsumerService consumerService;
 
+    /**
+     * 获取消费者群组列表
+     * @return
+     */
     @RequestMapping(value = "/groupList.query")
     @ResponseBody
     public Object list() {

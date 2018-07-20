@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
+ * AspectJ  的AOP 切面编程设计
  * 全局的返回ResponseBody
  * 实现SpringMVC的 ResponseBodyAdvice
  * todo ： learning

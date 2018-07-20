@@ -123,6 +123,7 @@
                     </imageTags>
                 </configuration>
             </plugin>
+            <!--maven 启动的代码规范检查插件 todo learning-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>

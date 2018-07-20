@@ -25,6 +25,7 @@ import java.lang.annotation.Target;
 /**
  * todo : ???
  */
+//spring的同一日志管理
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

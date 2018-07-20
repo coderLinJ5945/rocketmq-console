@@ -238,6 +238,7 @@ public class DashboardCollectTask {
             dashboardCollectService.getTopicMap().invalidateAll();
             currentDate = new Date();
         }
+        //todo 生成 topic 和 broker 的 json文件，用于后续操作
         File brokerFile = new File(dataLocationPath + nowDateStr + ".json");
         File topicFile = new File(dataLocationPath + nowDateStr + "_topic" + ".json");
         try {

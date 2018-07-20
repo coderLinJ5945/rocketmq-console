@@ -63,7 +63,8 @@ public class MonitorServiceImpl implements MonitorService {
         return true;
     }
 
-    //rocketmq.console.data.path/monitor/consumerMonitorConfig.json
+    //rocketmq.console.data.path/monitor/consumerMonitorConfig.json、
+    //?
     private String getConsumerMonitorConfigDataPath() {
         return rmqConfigure.getRocketMqConsoleDataPath() + File.separatorChar + "monitor" + File.separatorChar + "consumerMonitorConfig.json";
     }
@@ -86,7 +87,7 @@ public class MonitorServiceImpl implements MonitorService {
     }
 
     /**
-     * 加载？数据 todo 确认加载那一块的数据
+     * 加载 ConsumerMonitorConfig ？数据 todo 确认加载那一块的数据
      */
     @PostConstruct
     private void loadData() {
